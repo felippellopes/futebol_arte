@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+# Muda o nome do site em si (De Administrçao do site para o nome do meu site)
+admin.site.site_header = 'Futebol Arte'
 
 urlpatterns = [
     path("", include("project.urls")),
