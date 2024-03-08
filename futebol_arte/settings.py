@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'futebol_arte.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "futebolarte",
-        "USER": "postgres",
-        "PASSWORD": "password123",
-        "HOST": "127.0.0.1",
+        "NAME": "db_futebolarte",
+        "USER": "postgresql",
+        "PASSWORD": "Vlh8yIQVTIP1PlIcW2CneAvXCiXOOG6s",
+        "HOST": "dpg-cnll5sud3nmc7383ngtg-a.ohio-postgres.render.com",
         "PORT": "5432",
     }
 }
