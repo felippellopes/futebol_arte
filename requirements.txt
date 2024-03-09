@@ -4,6 +4,7 @@ Django==4.2.10
 filelock==3.13.1
 pillow==10.2.0
 platformdirs==4.2.0
+psycopg2-binary==2.9.9
 setuptools==49.2.1
 sqlparse==0.4.4
 typing_extensions==4.10.0

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 
@@ -20,14 +20,33 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+### configuração original ###
+# # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = os.getenv('SECRET_KEY', 'change-me')
+
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = bool(int(os.getenv('DEBUG', 0)))
+
+# ALLOWED_HOSTS = [
+#     h.strip() for h in os.getenv('ALLOWED_HOSTS', '').split(',')
+#     if h.strip()
+# ]
+
+### Nova configuração ###
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2m4&bwq0!^0^m_mesjiu@%2955gxm9r19ffa8qys=9(&tj(e4t'
+SECRET_KEY = os.getenv('SECRET_KEY', 'change-me')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.getenv('DEBUG', 0)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    h.strip() for h in os.getenv('ALLOWED_HOSTS', '').split(',')
+    if h.strip()
+]
 
+# Se DEBUG for False e ALLOWED_HOSTS estiver vazio, defina DEBUG como True
+if not DEBUG and not ALLOWED_HOSTS:
+    DEBUG = True
 
 # Application definition
 
