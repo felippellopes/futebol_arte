@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 
@@ -103,15 +104,19 @@ WSGI_APPLICATION = 'futebol_arte.wsgi.application'
 #      }
 #  }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "db_futebolarte",
+#         "USER": "postgresql",
+#         "PASSWORD": "Vlh8yIQVTIP1PlIcW2CneAvXCiXOOG6s",
+#         "HOST": "dpg-cnll5sud3nmc7383ngtg-a.ohio-postgres.render.com",
+#         "PORT": "5432",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "db_futebolarte",
-        "USER": "postgresql",
-        "PASSWORD": "Vlh8yIQVTIP1PlIcW2CneAvXCiXOOG6s",
-        "HOST": "dpg-cnll5sud3nmc7383ngtg-a.ohio-postgres.render.com",
-        "PORT": "5432",
-    }
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
